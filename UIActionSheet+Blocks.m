@@ -43,12 +43,16 @@ static void (^__destroyBlock)(UIActionSheet *sheet);
     
     UIActionSheet *sheet    = [[UIActionSheet alloc] initWithTitle:title
                                                           delegate:(id) [self class]
-                                                 cancelButtonTitle:cancelString
+                                                 cancelButtonTitle:nil
                                             destructiveButtonTitle:destructiveString
                                                  otherButtonTitles:nil];
     
     for(NSString *other in otherStrings)
         [sheet addButtonWithTitle: other];
+    
+    if (cancelString) {
+        [sheet setCancelButtonIndex:[sheet addButtonWithTitle:cancelString]];
+    }
     
     [sheet showInView: view];
 
