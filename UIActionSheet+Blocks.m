@@ -16,8 +16,8 @@ static void (^__destroyBlock)(UIActionSheet *sheet);
 +(UIActionSheet *)presentOnView:(UIView *)view
                       withTitle:(NSString *)title
                    otherButtons:(NSArray *)otherStrings
-                       onCancel:(void (^)(UIActionSheet *))cancelBlock
-                onClickedButton:(void (^)(UIActionSheet *, NSUInteger))clickBlock{
+                       onCancel:(void (^)(UIActionSheet *sheet))cancelBlock
+                onClickedButton:(void (^)(UIActionSheet *sheet, NSUInteger buttonIndex))clickBlock{
     
     return [self presentOnView:view
                      withTitle:title
@@ -34,9 +34,9 @@ static void (^__destroyBlock)(UIActionSheet *sheet);
                    cancelButton: (NSString *)cancelString
               destructiveButton: (NSString *)destructiveString
                    otherButtons: (NSArray *)otherStrings
-                       onCancel: (void (^)(UIActionSheet *))cancelBlock
-                  onDestructive: (void (^)(UIActionSheet *))destroyBlock
-                onClickedButton: (void (^)(UIActionSheet *, NSUInteger))clickBlock{
+                       onCancel: (void (^)(UIActionSheet *sheet))cancelBlock
+                  onDestructive: (void (^)(UIActionSheet *sheet))destroyBlock
+                onClickedButton: (void (^)(UIActionSheet *sheet, NSUInteger buttonIndex))clickBlock{
     __cancelBlock           = cancelBlock;
     __clickedBlock          = clickBlock;
     __destroyBlock          = destroyBlock;
