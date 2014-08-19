@@ -29,8 +29,8 @@
 +(UIActionSheet *)presentOnView: (UIView *)view
                       withTitle: (NSString *)title
                    otherButtons: (NSArray *)otherStrings
-                       onCancel: (void (^)(UIActionSheet *))cancelBlock
-                onClickedButton: (void (^)(UIActionSheet *, NSUInteger))clickBlock;
+                       onCancel: (void (^)(UIActionSheet *actionSheet))cancelBlock
+                onClickedButton: (void (^)(UIActionSheet *actionSheet, NSUInteger index))clickBlock;
 
 /**
  Present a UIActionSheet on a specific view
@@ -51,7 +51,7 @@
                    cancelButton: (NSString *)cancelString
               destructiveButton: (NSString *)destructiveString
                    otherButtons: (NSArray *)otherStrings
-                       onCancel: (void (^)(UIActionSheet *))cancelBlock
-                  onDestructive: (void (^)(UIActionSheet *))destroyBlock
-                onClickedButton: (void (^)(UIActionSheet *, NSUInteger))clickBlock;
+                       onCancel: (void (^)(UIActionSheet *actionSheet))cancelBlock
+                  onDestructive: (void (^)(UIActionSheet *actionSheet))destroyBlock
+                onClickedButton: (void (^)(UIActionSheet *actionSheet, NSUInteger index))clickBlock;
 @end
